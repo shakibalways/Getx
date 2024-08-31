@@ -34,7 +34,38 @@ class HomePage extends StatelessWidget {
                   controller.getIncrement(value);
                   log(value);
                 }),
-          )
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Obx(
+                () => controller.notifications.isTrue
+                    ? const Text(
+                        "Notifications",
+                        style: TextStyle(color: Colors.deepOrange,fontSize: 35,fontWeight: FontWeight.bold),
+                      )
+                    : controller.notifications.isFalse
+                        ? const Text(
+                            "Notifications",
+                            style: TextStyle(color: Colors.grey,fontSize: 35),
+                          )
+                        : const Text(
+                            "Please On",
+                            style: TextStyle(fontSize: 35),
+                          ),
+              ),
+              Obx(
+                () => Switch(
+                    value: controller.notifications.value,
+                    onChanged: (value) {
+                      controller.getOnOff(value);
+                    }),
+              ),
+            ],
+          ),
         ],
       ),
     );
