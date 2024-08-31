@@ -16,6 +16,12 @@ class HomePage extends StatelessWidget {
               height: 500,
               width: double.infinity,
               color: Colors.pink.withOpacity(controller.opacity.value),
+              child: Center(
+                child: Text(
+                  controller.index.toString(),
+                  style: TextStyle(fontSize: 35, color: Colors.black),
+                ),
+              ),
             ),
           ),
           Obx(
