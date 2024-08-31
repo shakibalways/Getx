@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/home.dart';
@@ -19,7 +21,7 @@ class HomePage extends StatelessWidget {
               child: Center(
                 child: Text(
                   controller.index.toString(),
-                  style: TextStyle(fontSize: 35, color: Colors.black),
+                  style: const TextStyle(fontSize: 35, color: Colors.black),
                 ),
               ),
             ),
@@ -28,7 +30,9 @@ class HomePage extends StatelessWidget {
             () => Slider(
                 value: controller.opacity.value,
                 onChanged: (value) {
+                  log(value);
                   controller.getIncrement(value);
+                  log(value);
                 }),
           )
         ],
